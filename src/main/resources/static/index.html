@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>motorvognregister</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="base.css">
+</head>
+<body>
+<h1>MotorvognRegister</h1>
+<!-- Inndatafelt for eierens informasjon -->
+<!-- Input-felt for eierens navn -->
+Eiers navn: <input type="text" id="navn"/>
+<!-- Input-felt for eierens personnummer -->
+Eiers Personnummer: <input type="number" id="personnummer"/>
+<!-- Input-felt for eierens adresse -->
+Eiers adresse: <input type="text" id="adresse"/><br/>
+<!-- Input-felt for kjennetegn -->
+Kjennetegn: <input type="text" id="kjennetegn"/>
+<!-- Input-felt for bilmerke -->
+Bilmerke: <input type="text" id="bilmerke"/>
+<!-- Input-felt for biltype -->
+Bil Type: <input type="text" id="biltype"/>
+<!-- Knapp for å registrere et kjøretøy -->
+<button onclick="lagreMotorvogn()">Registrer</button><br/>
+<!-- Container for å vise alle registrerte motorvogner -->
+Alle Motorvogn:
+<div id="motorvognene"></div>
+<!-- Knapp for å bekrefte sletting av alle registreringer -->
+<button onclick="bekreftSlett()">Slett registrerte</button>
+
+<script type="application/javascript">
+  // Samler inn verdier fra inndatafeltene og oppretter et motorvognsobjekt
+  function lagreMotorvogn() {
+    const motorvogn = {
+      navn: $("#navn").val(),
+      personnummer: $("#personnummer").val(),
+      adresse: $("#adresse").val(),
+      kjennetegn: $("#kjennetegn").val(),
+      bilmerke: $("#bilmerke").val(),
+      biltype: $("#biltype").val()
+    };
+    // Sender en POST-forespørsel for å lagre kjøretøydataene
+    $.post("/lagre", motorvogn, function () {
+      hentAlleMotorvogner();
+    });
+
+    // Tømmer inndatafeltene etter registrering
+    $("#navn").val("");
+    $("#personnummer").val("");
+    $("#adresse").val("");
+    $("#kjennetegn").val("");
+    $("#bilmerke").val("");
+    $("#biltype").val("");
+  }
+
+  // Formaterer kjøretøydataene til en HTML-tabell
+  function formaterData(motorvogner) {
+    let ut = "<table><tr><th>Navn</th><th>Personnummer</th><th>Adresse</th><th>Kjennetegn</th><th>Bilmerke</th><th>Bil Type</th></tr>";
+    for (const motorvogn of motorvogner) {
+      ut += "<tr><td>" + motorvogn.navn + "</td><td>" + motorvogn.personnummer + "</td><td>" + motorvogn.adresse + "</td><td>" + motorvogn.kjennetegn + "</td><td>" + motorvogn.bilmerke + "</td><td>" + motorvogn.biltype + "</td></tr>";
+    }
+    ut += "</table>";
+    // Setter HTML-innholdet til motorvognene-containeren
+    $("#motorvognene").html(ut);
+  }
+
+  // Henter alle registrerte motorvogner via en GET-forespørsel
+  function hentAlleMotorvogner() {
+    $.get("/hentAlle", function (data) {
+      formaterData(data);
+    });
+  }
+
+  // Sletter alle registrerte motorvogner
+  function slettAlleMotorvogner() {
+    $.get("/slettAlle", function(){
+      hentAlleMotorvogner();
+    });
+  }
+
+  // Bekrefter sletting av alle registreringer
+  function bekreftSlett() {
+    if (confirm("Er du sikker på at du vil slette alle registreringer?")) {
+      slettAlleMotorvogner();
+    } else {
+      // Handterer avbryt-situasjonen
+    }
+  }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+/* base.css */
+
+/* Stiler for input-felt, nummerfelt og knapp */
+input[type="text"],
+input[type="number"],
+button {
+    margin: 5px 0;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #000000;
+}
+
+/* Stiler for hele body-elementet */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #fffdfd; /* Endre hexadecimal-koden til ønsket farge */
+}
+
+/* Stiler for overskriftsnivå 1 (h1) */
+h1 {
+    text-align: center;
+}
+
+/* Stiler for knappene */
+button {
+    background-color: #000000;
+    color: #8bcbd3;
+    cursor: pointer;
+}
+
+/* Hover-effekt for knappene */
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Stiler for tabellhodene (th) og tabellcellene (td) */
+th,
+td {
+    border: 1px solid #ffffff;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Stiler for tabellhodene (th) */
+th {
+    background-color: #c7a3d5;
+}
+
+/* Stiler for tabellen */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Stiler for input-container som inneholder etikett og input-felt */
+.input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+/* Stiler for etikettene i input-container */
+.input-container label {
+    margin-bottom: 5px;
+}
+
+/* Stiler for input-feltene i input-container */
+.input-container input {
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+/* Stiler for knapp-container */
+.button-container {
+    text-align: center;
+}
+
+/* Gjenntatt stil for body */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Stiler for motorvognene-containeren */
+#motorvognene {
+    margin-top: 10px;
+}
+
+/* Gjenntatte stiler for tabell, th og td */
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+/* Gjenntatte stiler for th og td */
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+/* styles.css */
+
+/* Generelle stiler for hele body-elementet */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #fffdfd; /* Endre hexadecimal-koden til ønsket farge */
+}
+
+/* Stiler for overskriftsnivå 1 (h1) */
+h1 {
+    text-align: center;
+}
+
+/* Container for innholdsseksjonen */
+.content-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Stiler for input-felt, nummerfelt og knapp */
+input[type="text"],
+input[type="number"],
+button {
+    margin: 5px 0;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #000000;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Stiler for knappene */
+button {
+    background-color: #000000;
+    color: #8bcbd3;
+    cursor: pointer;
+}
+
+/* Hover-effekt for knappene */
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Stiler for tabellhodene (th) og tabellcellene (td) */
+th,
+td {
+    border: 1px solid #ffffff;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Stiler for tabellhodene (th) */
+th {
+    background-color: #c7a3d5;
+}
+
+/* Stiler for tabellen */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Stiler for input-container som inneholder etikett og input-felt */
+.input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+/* Stiler for etikettene i input-container */
+.input-container label {
+    margin-bottom: 5px;
+}
+
+/* Stiler for input-feltene i input-container */
+.input-container input {
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+/* Stiler for knapp-container */
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Stiler for motorvognene-containeren */
+#motorvognene {
+    margin-top: 10px;
+}
+
+/* Gjenntatte stiler for tabell, th og td */
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+/* Gjenntatte stiler for th og td */
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+
+
